@@ -224,6 +224,13 @@ def main():
 
     print_report(token, header, payload, signature, findings)
 
+ if alg == "none":
+    if signature != "":
+        print("[!] Security Issue: alg=none but signature present — token integrity broken.")
+    print("[!] Critical: alg=none tokens are insecure and should not be accepted.")
+
+
 
 if __name__ == '__main__':
     main()
+
